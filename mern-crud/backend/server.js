@@ -3,10 +3,10 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const Todo = require("./models/Todo")
 
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser : true})
+mongoose.connect("mongodb://127.0.0.1:27017/todos", { useNewUrlParser : true});
 mongoose.connection.once('open', () =>{
-    console.log("Mongodb connection established successfully")
-})
+    console.log("Mongodb connection established successfully");
+});
 
 const PORT = 4000;
 
@@ -25,26 +25,26 @@ app.get("/", (req, res) => {
     });
 });
 
-app.post("/create", (req, res) =>{
+app.post("/create", (req, res) => {
     const todo = new Todo(req.body);
     todo
-        .save()
-        .then((todo) => {
-            res.json(todo);
-        })
-        .catch((err) => {
-            res.status(500).send(err.message);
-        });
+      .save()
+      .then((todo) => {
+        res.json(todo);
+      })
+      .catch((err) => {
+        res.status(500).send(err.message);
+      });
 });
 
-app.get("/:id" , (req, res) => {
+app.get("/:id", (req, res) => {
     const id = req.params.id;
     Todo.findById(id, (err, todo) => {
-        res.json(todo);
+      res.json(todo);
     });
 });
 
 app.listen(PORT, () =>{
-    console.log("Server is running on port" +PORT)
+    console.log("Server is running on port " +PORT)
 })
 
