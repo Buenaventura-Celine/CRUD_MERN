@@ -5,7 +5,10 @@ import { useHistory } from 'react-router';
 export const TodoForm = ({ todo, onSubmit }) => {
     const { register, handleSubmit} = useForm({ 
         defaultValues: 
-            { text: todo ? todo.text: "" }
+            { 
+                text: todo ? todo.text: "" ,
+                description: todo ? todo.description: "" 
+            }
     });
     const history = useHistory();
 
@@ -24,6 +27,17 @@ export const TodoForm = ({ todo, onSubmit }) => {
                         id="text"
                         autoComplete="off"
                         {...register("text", {
+                            required: "Required",
+                        })}
+                    />
+                <label htmlFor="text">Description</label>
+                    <textarea
+                        className="form-control"
+                        type="text"
+                        name="description"
+                        id="description"
+                        autoComplete="off"
+                        {...register("description", {
                             required: "Required",
                         })}
                     />

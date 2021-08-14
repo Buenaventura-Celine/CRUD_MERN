@@ -51,6 +51,7 @@ app.post("/:id", (req, res) => {
           res.status(404).send("Todo not found")
       }else{
           todo.text = req.body.text
+          todo.description = req.body.description
           todo.save().then(todo => {
               res.json(todo)
           }).catch(err => res.status(500).send(err.message));
