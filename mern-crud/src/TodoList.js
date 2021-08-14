@@ -20,7 +20,7 @@ export const TodoList = () => {
         <table className="table table-striped mt-3">
           <thead>
             <tr>
-              <th>Text</th>
+              <th>Title</th>
               <th>Description</th>
               <th>Action</th>
             </tr>

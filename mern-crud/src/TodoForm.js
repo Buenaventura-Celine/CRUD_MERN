@@ -7,7 +7,7 @@ export const TodoForm = ({ todo, onSubmit }) => {
         defaultValues: 
             { 
                 text: todo ? todo.text: "" ,
-                description: todo ? todo.description: "" 
+                description: todo ? todo.description: "" ,
             }
     });
     const history = useHistory();
@@ -19,7 +19,7 @@ export const TodoForm = ({ todo, onSubmit }) => {
     return (
         <form onSubmit={submitHandler}>
             <div className="form-group">
-                <label htmlFor="text">Text:</label>
+                <label htmlFor="text">Title:</label>
                     <input
                         className="form-control"
                         type="text"
