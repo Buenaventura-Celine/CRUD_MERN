@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
-import { getTodos } from "./api"
+import { Link } from 'react-router-dom';
+import { getTodos } from "./api";
 
 export const TodoList = () => {
   const [items, setItems] = useState([])
@@ -45,5 +45,6 @@ export const TodoList = () => {
         </table>
       </div>
     </div>
+    
   );
 };
